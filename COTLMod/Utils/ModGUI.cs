@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +24,11 @@ namespace COTLMod.Utils
 
         public static void MainMenu()
         {
-            GUI.backgroundColor = Color.black;
-            GUI.color = new Color(200, 0, 0, 255);
-            GUI.Box(new Rect(0, 0, 500, 700), $"<size=30><color=red>COTLMod</color> By Scrim [v{MainMod.ModVersion}]</size>");
+            GUI.backgroundColor = new Color(200, 0, 0, 255);
+            GUI.color = new Color(255, 255, 255, 255);
+            GUI.Box(new Rect(0, 300, 500, 700), $"<size=30><color=red>COTLMod</color> By Scrim [v{MainMod.ModVersion}]</size>");
 
-            if (GUI.Button(new Rect(0, 300, 500, 50), $"Speed Hack [{SetButtonText1}]"))
+            if (GUI.Button(new Rect(0, 350, 500, 40), $"Speed Hack [{SetButtonText1}]"))
             {
                 speedhack = !speedhack;
 
@@ -41,7 +42,7 @@ namespace COTLMod.Utils
                 }
             }
 
-            if (GUI.Button(new Rect(0, 300, 500, 50), $"Noclip [{SetButtonText2}]"))
+            if (GUI.Button(new Rect(0, 400, 500, 40), $"Noclip [{SetButtonText2}]"))
             {
                 nocliphack = !nocliphack;
 
@@ -55,7 +56,7 @@ namespace COTLMod.Utils
                 }
             }
 
-            if (GUI.Button(new Rect(0, 300, 500, 50), $"Max Weapon Damage [{SetButtonText3}]"))
+            if (GUI.Button(new Rect(0, 450, 500, 40), $"Max Weapon Damage [{SetButtonText3}]"))
             {
                 maxweapondmg = !maxweapondmg;
 
@@ -69,7 +70,7 @@ namespace COTLMod.Utils
                 }
             }
 
-            if (GUI.Button(new Rect(0, 300, 500, 50), $"Inf Health [{SetButtonText4}]"))
+            if (GUI.Button(new Rect(0, 500, 500, 40), $"Inf Health [{SetButtonText4}]"))
             {
                 Infhealth = !Infhealth;
 
@@ -83,7 +84,7 @@ namespace COTLMod.Utils
                 }
             }
 
-            if (GUI.Button(new Rect(0, 300, 500, 50), $"No Cooldowns [{SetButtonText5}]"))
+            if (GUI.Button(new Rect(0, 550, 500, 40), $"No Cooldowns [{SetButtonText5}]"))
             {
                 NoCools = !NoCools;
 
@@ -95,6 +96,17 @@ namespace COTLMod.Utils
                 {
                     SetButtonText5 = "<color=red>OFF</color>";
                 }
+            }
+
+            if (GUI.Button(new Rect(0, 750, 500, 40), "Quit Game"))
+            {
+                Process.GetCurrentProcess().Kill();
+            }
+
+            if (GUI.Button(new Rect(0, 800, 500, 40), "Restart Game"))
+            {
+                Process.Start("Cult Of The Lamb.exe");
+                Process.GetCurrentProcess().Kill();
             }
         }
     }
