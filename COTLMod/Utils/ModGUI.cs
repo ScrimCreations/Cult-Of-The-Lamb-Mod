@@ -22,91 +22,103 @@ namespace COTLMod.Utils
         public static bool Infhealth = false;
         public static bool NoCools = false;
 
-        public static void MainMenu()
+        public static void MainMenu(bool state)
         {
-            GUI.backgroundColor = new Color(200, 0, 0, 255);
-            GUI.color = new Color(255, 255, 255, 255);
-            GUI.Box(new Rect(0, 300, 500, 700), $"<size=30><color=red>COTLMod</color> By Scrim [v{MainMod.ModVersion}]</size>");
-
-            if (GUI.Button(new Rect(0, 350, 500, 40), $"Speed Hack [{SetButtonText1}]"))
+            if (state)
             {
-                speedhack = !speedhack;
+                GUI.backgroundColor = new Color(200, 0, 0, 255);
+                GUI.color = new Color(255, 255, 255, 255);
+                GUI.Box(new Rect(0, 300, 500, 700), $"<size=30><color=red>COTLMod</color> By Scrim [v{MainMod.ModVersion}]</size>");
 
-                if (speedhack)
+                if (GUI.Button(new Rect(0, 350, 500, 40), $"Speed Hack [{SetButtonText1}]"))
                 {
-                    SetButtonText1 = "<color=green>ON</color>";
+                    speedhack = !speedhack;
+
+                    if (speedhack)
+                    {
+                        SetButtonText1 = "<color=green>ON</color>";
+                        LocalPlayer.SpeedHack(true);
+                    }
+                    else
+                    {
+                        SetButtonText1 = "<color=red>OFF</color>";
+                        LocalPlayer.SpeedHack(false);
+                    }
                 }
-                else
+
+                if (GUI.Button(new Rect(0, 400, 500, 40), $"Noclip [{SetButtonText2}]"))
                 {
-                    SetButtonText1 = "<color=red>OFF</color>";
+                    nocliphack = !nocliphack;
+
+                    if (nocliphack)
+                    {
+                        SetButtonText2 = "<color=green>ON</color>";
+                    }
+                    else
+                    {
+                        SetButtonText2 = "<color=red>OFF</color>";
+                    }
+                }
+
+                if (GUI.Button(new Rect(0, 450, 500, 40), $"Max Weapon Damage [{SetButtonText3}]"))
+                {
+                    maxweapondmg = !maxweapondmg;
+
+                    if (maxweapondmg)
+                    {
+                        SetButtonText3 = "<color=green>ON</color>";
+                    }
+                    else
+                    {
+                        SetButtonText3 = "<color=red>OFF</color>";
+                    }
+                }
+
+                if (GUI.Button(new Rect(0, 500, 500, 40), $"Inf Health [{SetButtonText4}]"))
+                {
+                    Infhealth = !Infhealth;
+
+                    if (Infhealth)
+                    {
+                        SetButtonText4 = "<color=green>ON</color>";
+                    }
+                    else
+                    {
+                        SetButtonText4 = "<color=red>OFF</color>";
+                    }
+                }
+
+                if (GUI.Button(new Rect(0, 550, 500, 40), $"No Cooldowns [{SetButtonText5}]"))
+                {
+                    NoCools = !NoCools;
+
+                    if (NoCools)
+                    {
+                        SetButtonText5 = "<color=green>ON</color>";
+                    }
+                    else
+                    {
+                        SetButtonText5 = "<color=red>OFF</color>";
+                    }
+                }
+
+                if (GUI.Button(new Rect(0, 750, 500, 40), "Quit Game"))
+                {
+                    Process.GetCurrentProcess().Kill();
+                }
+
+                if (GUI.Button(new Rect(0, 800, 500, 40), "Restart Game"))
+                {
+                    Process.Start("Cult Of The Lamb.exe");
+                    Process.GetCurrentProcess().Kill();
                 }
             }
-
-            if (GUI.Button(new Rect(0, 400, 500, 40), $"Noclip [{SetButtonText2}]"))
+            else
             {
-                nocliphack = !nocliphack;
-
-                if (nocliphack)
-                {
-                    SetButtonText2 = "<color=green>ON</color>";
-                }
-                else
-                {
-                    SetButtonText2 = "<color=red>OFF</color>";
-                }
-            }
-
-            if (GUI.Button(new Rect(0, 450, 500, 40), $"Max Weapon Damage [{SetButtonText3}]"))
-            {
-                maxweapondmg = !maxweapondmg;
-
-                if (maxweapondmg)
-                {
-                    SetButtonText3 = "<color=green>ON</color>";
-                }
-                else
-                {
-                    SetButtonText3 = "<color=red>OFF</color>";
-                }
-            }
-
-            if (GUI.Button(new Rect(0, 500, 500, 40), $"Inf Health [{SetButtonText4}]"))
-            {
-                Infhealth = !Infhealth;
-
-                if (Infhealth)
-                {
-                    SetButtonText4 = "<color=green>ON</color>";
-                }
-                else
-                {
-                    SetButtonText4 = "<color=red>OFF</color>";
-                }
-            }
-
-            if (GUI.Button(new Rect(0, 550, 500, 40), $"No Cooldowns [{SetButtonText5}]"))
-            {
-                NoCools = !NoCools;
-
-                if (NoCools)
-                {
-                    SetButtonText5 = "<color=green>ON</color>";
-                }
-                else
-                {
-                    SetButtonText5 = "<color=red>OFF</color>";
-                }
-            }
-
-            if (GUI.Button(new Rect(0, 750, 500, 40), "Quit Game"))
-            {
-                Process.GetCurrentProcess().Kill();
-            }
-
-            if (GUI.Button(new Rect(0, 800, 500, 40), "Restart Game"))
-            {
-                Process.Start("Cult Of The Lamb.exe");
-                Process.GetCurrentProcess().Kill();
+                GUI.backgroundColor = new Color(0, 0, 0, 0);
+                GUI.color = new Color(0, 0, 0, 0);
+                GUI.Box(new Rect(0, 0, 0, 0), "");
+                GUI.Button(new Rect(0, 0, 0, 0), "");
             }
         }
     }
