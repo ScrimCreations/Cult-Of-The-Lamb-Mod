@@ -113,17 +113,17 @@ namespace COTLMod.Utils
         {
             if (state)
             {
-                LPPlayer.GetComponent<CircleCollider2D>().isTrigger = true;
-                StarterPlyr.GetComponent<CircleCollider2D>().isTrigger = true;
-                deathplayer.GetComponent<CircleCollider2D>().isTrigger = true;
-                RoomPlayer.GetComponent<CircleCollider2D>().isTrigger = true;
+                LPPlayer.GetComponent<Collider2D>().isTrigger = true;
+                StarterPlyr.GetComponent<Collider2D>().isTrigger = true;
+                deathplayer.GetComponent<Collider2D>().isTrigger = true;
+                RoomPlayer.GetComponent<Collider2D>().isTrigger = true;
             }
             else
             {
-                LPPlayer.GetComponent<CircleCollider2D>().isTrigger = false;
-                StarterPlyr.GetComponent<CircleCollider2D>().isTrigger = false;
-                deathplayer.GetComponent<CircleCollider2D>().isTrigger = false;
-                RoomPlayer.GetComponent<CircleCollider2D>().isTrigger = false;
+                LPPlayer.GetComponent<Collider2D>().isTrigger = false;
+                StarterPlyr.GetComponent<Collider2D>().isTrigger = false;
+                deathplayer.GetComponent<Collider2D>().isTrigger = false;
+                RoomPlayer.GetComponent<Collider2D>().isTrigger = false;
             }
         }
 
