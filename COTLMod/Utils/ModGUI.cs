@@ -22,6 +22,7 @@ namespace COTLMod.Utils
         public static bool Infhealth = false;
         public static bool NoCools = false;
 
+        public static bool LoopCheckFunc = false;
         public static void MainMenu(bool state)
         {
             if (state)
@@ -38,11 +39,13 @@ namespace COTLMod.Utils
                     {
                         SetButtonText1 = "<color=green>ON</color>";
                         LocalPlayer.SpeedHack(true);
+                        LoopCheckFunc = true;
                     }
                     else
                     {
                         SetButtonText1 = "<color=red>OFF</color>";
                         LocalPlayer.SpeedHack(false);
+                        LoopCheckFunc = false;
                     }
                 }
 
@@ -53,10 +56,12 @@ namespace COTLMod.Utils
                     if (nocliphack)
                     {
                         SetButtonText2 = "<color=green>ON</color>";
+                        LocalPlayer.NoClip(true);
                     }
                     else
                     {
                         SetButtonText2 = "<color=red>OFF</color>";
+                        LocalPlayer.NoClip(false);
                     }
                 }
 
@@ -67,10 +72,12 @@ namespace COTLMod.Utils
                     if (maxweapondmg)
                     {
                         SetButtonText3 = "<color=green>ON</color>";
+                        LocalPlayer.OPWeapons(true);
                     }
                     else
                     {
                         SetButtonText3 = "<color=red>OFF</color>";
+                        LocalPlayer.OPWeapons(false);
                     }
                 }
 
@@ -81,10 +88,12 @@ namespace COTLMod.Utils
                     if (Infhealth)
                     {
                         SetButtonText4 = "<color=green>ON</color>";
+                        LocalPlayer.InfHealth(true);
                     }
                     else
                     {
                         SetButtonText4 = "<color=red>OFF</color>";
+                        LocalPlayer.InfHealth(false);
                     }
                 }
 
@@ -95,10 +104,12 @@ namespace COTLMod.Utils
                     if (NoCools)
                     {
                         SetButtonText5 = "<color=green>ON</color>";
+                        LocalPlayer.NoCoolDowns(true);
                     }
                     else
                     {
                         SetButtonText5 = "<color=red>OFF</color>";
+                        LocalPlayer.NoCoolDowns(false);
                     }
                 }
 

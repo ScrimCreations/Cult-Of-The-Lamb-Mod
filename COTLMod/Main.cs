@@ -39,6 +39,15 @@ namespace COTLMod
             {
                 menutog = !menutog;
             }
+
+            if (ModGUI.LoopCheckFunc)
+            {
+
+            }
+            else
+            {
+
+            }
         }
 
         public override void OnGUI()
