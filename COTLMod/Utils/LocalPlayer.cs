@@ -10,13 +10,8 @@ using RewiredConsts;
 
 namespace COTLMod.Utils
 {
-    //Very Messy Code below lmao
     internal class LocalPlayer
     {
-        public static GameObject LPPlayer = GameObject.Find("Game Prefab/Units/PlayerPrefab(Clone)");
-        public static GameObject StarterPlyr = GameObject.Find("Game Prefab/Units/Player - Prisoner(Clone)");
-        public static GameObject deathplayer = GameObject.Find("Death Scene/Death/Units/Player - Prisoner(Clone)");
-        public static GameObject RoomPlayer = GameObject.Find("Room/CustomTransform/PlayerPrefab(Clone)");
         public static float SpeedHackSpeed = 15.5f;
         public static float DeafultPlyrSpeed = 4.5f;
         public static float DefaultDodgeSpeed = 11.5f;
@@ -27,87 +22,31 @@ namespace COTLMod.Utils
             {
                 try
                 {
-                    try
+                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<PlayerController>())
                     {
-                        deathplayer.GetComponent<PlayerController>().DefaultRunSpeed = SpeedHackSpeed;
-                        deathplayer.GetComponent<PlayerController>().DodgeSpeed = SpeedHackSpeed;
-                        deathplayer.GetComponent<PlayerController>().RunSpeed = SpeedHackSpeed;
-                        deathplayer.GetComponent<PlayerController>().speed = SpeedHackSpeed;
+                        var plyr = PlayerComp.GetComponent<PlayerController>();
+                        plyr.GetComponent<PlayerController>().speed = SpeedHackSpeed;
+                        plyr.GetComponent<PlayerController>().DefaultRunSpeed = SpeedHackSpeed;
+                        plyr.GetComponent<PlayerController>().DodgeSpeed = SpeedHackSpeed;
+                        plyr.GetComponent<PlayerController>().RunSpeed = SpeedHackSpeed;
                     }
-                    catch { }
-
-                    try
-                    {
-                        RoomPlayer.GetComponent<PlayerController>().DefaultRunSpeed = SpeedHackSpeed;
-                        RoomPlayer.GetComponent<PlayerController>().DodgeSpeed = SpeedHackSpeed;
-                        RoomPlayer.GetComponent<PlayerController>().RunSpeed = SpeedHackSpeed;
-                        RoomPlayer.GetComponent<PlayerController>().speed = SpeedHackSpeed;
-                    }
-                    catch { }
-
-                    try
-                    {
-                        StarterPlyr.GetComponent<PlayerPrisonerController>().MaxSpeed = SpeedHackSpeed;
-                        StarterPlyr.GetComponent<PlayerPrisonerController>().Speed = SpeedHackSpeed;
-                    }
-                    catch { }
-
-                    try
-                    {
-                        LPPlayer.GetComponent<PlayerController>().DefaultRunSpeed = SpeedHackSpeed;
-                        LPPlayer.GetComponent<PlayerController>().RunSpeed = SpeedHackSpeed;
-                        LPPlayer.GetComponent<PlayerController>().DodgeSpeed = SpeedHackSpeed;
-                        LPPlayer.GetComponent<PlayerController>().speed = SpeedHackSpeed;
-                    }
-                    catch { }
                 }
-                catch
-                {
-                    MelonLogger.Msg("Couldn't get speed component(s)");
-                }
+                catch { MelonLogger.Msg("Couldn't get player component(s) for Speed Hacks"); }
             }
             else
             {
                 try
                 {
-                    try
+                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<PlayerController>())
                     {
-                        deathplayer.GetComponent<PlayerController>().DefaultRunSpeed = DeafultPlyrSpeed;
-                        deathplayer.GetComponent<PlayerController>().DodgeSpeed = DefaultDodgeSpeed;
-                        deathplayer.GetComponent<PlayerController>().RunSpeed = DeafultPlyrSpeed;
-                        deathplayer.GetComponent<PlayerController>().speed = DeafultPlyrSpeed;
+                        var plyr = PlayerComp.GetComponent<PlayerController>();
+                        plyr.GetComponent<PlayerController>().speed = DeafultPlyrSpeed;
+                        plyr.GetComponent<PlayerController>().DefaultRunSpeed = DeafultPlyrSpeed;
+                        plyr.GetComponent<PlayerController>().DodgeSpeed = DefaultDodgeSpeed;
+                        plyr.GetComponent<PlayerController>().RunSpeed = DeafultPlyrSpeed;
                     }
-                    catch { }
-
-                    try
-                    {
-                        RoomPlayer.GetComponent<PlayerController>().DefaultRunSpeed = DeafultPlyrSpeed;
-                        RoomPlayer.GetComponent<PlayerController>().DodgeSpeed = DefaultDodgeSpeed;
-                        RoomPlayer.GetComponent<PlayerController>().RunSpeed = DeafultPlyrSpeed;
-                        RoomPlayer.GetComponent<PlayerController>().speed = DeafultPlyrSpeed;
-                    }
-                    catch { }
-
-                    try
-                    {
-                        StarterPlyr.GetComponent<PlayerPrisonerController>().MaxSpeed = DeafultPlyrSpeed;
-                        StarterPlyr.GetComponent<PlayerPrisonerController>().Speed = DeafultPlyrSpeed;
-                    }
-                    catch { }
-
-                    try
-                    {
-                        LPPlayer.GetComponent<PlayerController>().DefaultRunSpeed = DeafultPlyrSpeed;
-                        LPPlayer.GetComponent<PlayerController>().RunSpeed = DeafultPlyrSpeed;
-                        LPPlayer.GetComponent<PlayerController>().DodgeSpeed = DefaultDodgeSpeed;
-                        LPPlayer.GetComponent<PlayerController>().speed = DeafultPlyrSpeed;
-                    }
-                    catch { }
                 }
-                catch
-                {
-                    MelonLogger.Msg("Couldn't get speed component(s)");
-                }
+                catch { MelonLogger.Msg("Couldn't get player component(s) for Speed Hacks!"); }
             }
         }
 
@@ -117,112 +56,79 @@ namespace COTLMod.Utils
             {
                 try
                 {
-                    LPPlayer.GetComponent<CircleCollider2D>().isTrigger = true;
+                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<PlayerController>())
+                    {
+                        var plyr = PlayerComp.GetComponent<CircleCollider2D>();
+                        plyr.GetComponent<CircleCollider2D>().isTrigger = true;
+                    }
                 }
-                catch { }
-                try
-                {
-                    StarterPlyr.GetComponent<CircleCollider2D>().isTrigger = true;
-                }
-                catch { }
-                try
-                {
-                    deathplayer.GetComponent<CircleCollider2D>().isTrigger = true;
-                }
-                catch { }
-                try
-                {
-                    RoomPlayer.GetComponent<CircleCollider2D>().isTrigger = true;
-                }
-                catch { }
+                catch { MelonLogger.Msg("Couldn't get player component(s) for Noclip!"); }
             }
             else
             {
                 try
                 {
-                    LPPlayer.GetComponent<CircleCollider2D>().isTrigger = false;
+                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<PlayerController>())
+                    {
+                        var plyr = PlayerComp.GetComponent<CircleCollider2D>();
+                        plyr.GetComponent<CircleCollider2D>().isTrigger = false;
+                    }
                 }
-                catch { }
-                try
-                {
-                    StarterPlyr.GetComponent<CircleCollider2D>().isTrigger = false;
-                }
-                catch { }
-                try
-                {
-                    deathplayer.GetComponent<CircleCollider2D>().isTrigger = false;
-                }
-                catch { }
-                try
-                {
-                    RoomPlayer.GetComponent<CircleCollider2D>().isTrigger = false;
-                }
-                catch { }
+                catch { MelonLogger.Msg("Couldn't get player component(s) for Noclip!"); }
             }
         }
 
         public static void OPWeapons(bool state)
         {
-            //Will work on later lol
-            /*
             if (state)
             {
-                
+                try
+                {
+                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<PlayerWeapon>())
+                    {
+                        var plyr = PlayerComp.GetComponent<PlayerWeapon>();
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.CriticalChance = 100f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.AttackRateMultiplier = 100f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.WeaponDamageMultiplier = 200f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.HealChance = 100f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.HealAmount = 100f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.RangeMultiplier = 100f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.XPDropMultiplier = 100f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.PoisonChance = 100f;
+                    }
+                }
+                catch { MelonLogger.Msg("Couldn't get Weapon component(s)"); }
             }
             else
             {
-
+                try
+                {
+                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<PlayerWeapon>())
+                    {
+                        var plyr = PlayerComp.GetComponent<PlayerWeapon>();
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.CriticalChance = 1f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.AttackRateMultiplier = 1f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.WeaponDamageMultiplier = 1f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.HealChance = 1f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.HealAmount = 1f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.RangeMultiplier = 1f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.XPDropMultiplier = 1f;
+                        plyr.GetComponent<PlayerWeapon>().CurrentWeapon.PoisonChance = 1f;
+                    }
+                }
+                catch { MelonLogger.Msg("Couldn't get Weapon component(s)"); }
             }
-            */
         }
 
         public static void InfHealth(bool state)
         {
             if (state)
             {
-                try
-                {
-
-                }
-                catch { }
-                try
-                {
-
-                }
-                catch { }
-                try
-                {
-
-                }
-                catch { }
-                try
-                {
-
-                }
-                catch { }
+                
             }
             else
             {
-                try
-                {
-
-                }
-                catch { }
-                try
-                {
-
-                }
-                catch { }
-                try
-                {
-
-                }
-                catch { }
-                try
-                {
-
-                }
-                catch { }
+                
             }
         }
 
@@ -232,37 +138,25 @@ namespace COTLMod.Utils
             {
                 try
                 {
-                    RoomPlayer.GetComponent<PlayerController>().DodgeDelay = 0f;
+                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<PlayerController>())
+                    {
+                        var plyr = PlayerComp.GetComponent<PlayerController>();
+                        plyr.GetComponent<PlayerController>().DodgeDelay = 0f;
+                    }
                 }
-                catch { }
-                try
-                {
-                    LPPlayer.GetComponent<PlayerController>().DodgeDelay = 0f;
-                }
-                catch { }
-                try
-                {
-
-                }
-                catch { }
+                catch { MelonLogger.Msg("Couldn't get player component(s) for cooldown removal"); }
             }
             else
             {
                 try
                 {
-                    RoomPlayer.GetComponent<PlayerController>().DodgeDelay = 0.28f;
+                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<PlayerController>())
+                    {
+                        var plyr = PlayerComp.GetComponent<PlayerController>();
+                        plyr.GetComponent<PlayerController>().DodgeDelay = 0.28f;
+                    }
                 }
-                catch { }
-                try
-                {
-                    LPPlayer.GetComponent<PlayerController>().DodgeDelay = 0.28f;
-                }
-                catch { }
-                try
-                {
-
-                }
-                catch { }
+                catch { MelonLogger.Msg("Couldn't get player component(s) for cooldown removal"); }
             }
         }
 
