@@ -25,6 +25,7 @@ namespace COTLMod
 
         public override void OnApplicationStart()
         {
+            Console.Title = "Cult Of The Lamb [MODDED]";
             Console.ForegroundColor = ConsoleColor.White;
             MelonLogger.Msg("Loading Menu and Utilities...");
             MelonEvents.OnGUI.Subscribe(defaultmenustate, 1);
@@ -32,7 +33,7 @@ namespace COTLMod
             Thread.Sleep(3000);
             Configs.LoadBind();
             MelonLogger.Msg("Done!");
-            MelonLogger.Msg($"{Configs.MenuToggKeybind} to Toggle the menu on or off");
+            MelonLogger.Msg($"[{Configs.MenuToggKeybind}] to Toggle the menu ON or OFF");
         }
 
         void defaultmenustate()
