@@ -32,7 +32,7 @@ namespace COTLMod
             Thread.Sleep(3000);
             Configs.LoadBind();
             MelonLogger.Msg("Done!");
-            MelonLogger.Msg("Left Alt to Toggle the menu on or off");
+            MelonLogger.Msg($"{Configs.MenuToggKeybind} to Toggle the menu on or off");
         }
 
         void defaultmenustate()
