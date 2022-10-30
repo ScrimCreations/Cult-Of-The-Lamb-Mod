@@ -12,15 +12,16 @@ using System.Diagnostics;
 using System.Threading;
 using System.IO;
 
-[assembly: MelonInfo(typeof(MainMod), "COTLMod", "1.2", "Scrim")]
+[assembly: MelonInfo(typeof(MainMod), "COTLMod", "1.3", "Scrim")]
 [assembly: MelonColor(ConsoleColor.DarkRed)]
 [assembly: MelonPriority(0)]
+[assembly: MelonGame("Massive Monster", "Cult Of The Lamb")]
 
 namespace COTLMod
 {
     public class MainMod : MelonMod
     {
-        public static string ModVersion = "1.2";
+        public static string ModVersion = "1.3";
         static bool menutog = false;
 
         public override void OnApplicationStart()
