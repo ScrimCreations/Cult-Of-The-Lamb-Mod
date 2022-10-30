@@ -95,7 +95,7 @@ namespace COTLMod.Utils
                         plyr.GetComponent<PlayerWeapon>().CurrentWeapon.RangeMultiplier = 100f;
                         plyr.GetComponent<PlayerWeapon>().CurrentWeapon.XPDropMultiplier = 100f;
                         plyr.GetComponent<PlayerWeapon>().CurrentWeapon.PoisonChance = 100f;
-                        plyr.GetComponent<PlayerWeapon>().CurrentWeaponLevel = 50;
+                        //plyr.GetComponent<PlayerWeapon>().CurrentWeaponLevel = 50;
                     }
                 }
                 catch { MelonLogger.Msg("Couldn't get Weapon component(s)"); }
@@ -115,7 +115,7 @@ namespace COTLMod.Utils
                         plyr.GetComponent<PlayerWeapon>().CurrentWeapon.RangeMultiplier = 1f;
                         plyr.GetComponent<PlayerWeapon>().CurrentWeapon.XPDropMultiplier = 1f;
                         plyr.GetComponent<PlayerWeapon>().CurrentWeapon.PoisonChance = 1f;
-                        plyr.GetComponent<PlayerWeapon>().CurrentWeaponLevel = 5;
+                        //plyr.GetComponent<PlayerWeapon>().CurrentWeaponLevel = 5;
                     }
                 }
                 catch { MelonLogger.Msg("Couldn't get Weapon component(s)"); }
@@ -128,12 +128,12 @@ namespace COTLMod.Utils
             {
                 try
                 {
-                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<Health>())
+                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<HealthPlayer>())
                     {
-                        var plyr = PlayerComp.GetComponent<Health>();
-                        plyr.GetComponent<Health>().totalHP = 999f;
-                        plyr.GetComponent<Health>()._totalHP = 999f;
-                        plyr.GetComponent<Health>().HP = 999f;
+                        var plyr = PlayerComp.GetComponent<HealthPlayer>();
+                        plyr.GetComponent<HealthPlayer>().totalHP = 999f;
+                        plyr.GetComponent<HealthPlayer>()._totalHP = 999f;
+                        plyr.GetComponent<HealthPlayer>().HP = 999f;
                     }
                 }
                 catch { MelonLogger.Msg("Couldn't get player component(s) for health"); }
@@ -142,13 +142,13 @@ namespace COTLMod.Utils
             {
                 try
                 {
-                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<Health>())
+                    foreach (Component PlayerComp in Resources.FindObjectsOfTypeAll<HealthPlayer>())
                     {
                         //Idk the defualt health so goodluck lmao
-                        var plyr = PlayerComp.GetComponent<Health>();
-                        plyr.GetComponent<Health>().totalHP = 5f;
-                        plyr.GetComponent<Health>()._totalHP = 5f;
-                        plyr.GetComponent<Health>().HP = 5f;
+                        var plyr = PlayerComp.GetComponent<HealthPlayer>();
+                        plyr.GetComponent<HealthPlayer>().totalHP = 5f;
+                        plyr.GetComponent<HealthPlayer>()._totalHP = 5f;
+                        plyr.GetComponent<HealthPlayer>().HP = 5f;
                     }
                 }
                 catch { MelonLogger.Msg("Couldn't get player component(s) for health"); }
