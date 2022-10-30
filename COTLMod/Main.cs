@@ -9,6 +9,8 @@ using COTLMod;
 using UnityEngine;
 using COTLMod.Utils;
 using System.Diagnostics;
+using System.Threading;
+using System.IO;
 
 [assembly: MelonInfo(typeof(MainMod), "COTLMod", "1.1", "Scrim")]
 [assembly: MelonColor(ConsoleColor.DarkRed)]
@@ -20,10 +22,15 @@ namespace COTLMod
     {
         public static string ModVersion = "1.1";
         static bool menutog = false;
+
         public override void OnApplicationStart()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             MelonLogger.Msg("Loading Menu and Utilities...");
             MelonEvents.OnGUI.Subscribe(defaultmenustate, 1);
+            Configs.Load();
+            Thread.Sleep(3000);
+            Configs.LoadBind();
             MelonLogger.Msg("Done!");
             MelonLogger.Msg("Left Alt to Toggle the menu on or off");
         }
@@ -35,18 +42,9 @@ namespace COTLMod
 
         public override void OnUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.LeftAlt))
+            if (Input.GetKeyDown(Configs.MenuToggKeybind))
             {
                 menutog = !menutog;
-            }
-
-            if (ModGUI.LoopCheckFunc)
-            {
-
-            }
-            else
-            {
-
             }
         }
 

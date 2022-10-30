@@ -22,7 +22,6 @@ namespace COTLMod.Utils
         public static bool Infhealth = false;
         public static bool NoCools = false;
 
-        public static bool LoopCheckFunc = false;
         public static void MainMenu(bool state)
         {
             if (state)
@@ -39,13 +38,11 @@ namespace COTLMod.Utils
                     {
                         SetButtonText1 = "<color=green>ON</color>";
                         LocalPlayer.SpeedHack(true);
-                        LoopCheckFunc = true;
                     }
                     else
                     {
                         SetButtonText1 = "<color=red>OFF</color>";
                         LocalPlayer.SpeedHack(false);
-                        LoopCheckFunc = false;
                     }
                 }
 

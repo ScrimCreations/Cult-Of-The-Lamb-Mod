@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Lamb;
+using RewiredConsts;
 
 namespace COTLMod.Utils
 {
@@ -113,17 +115,49 @@ namespace COTLMod.Utils
         {
             if (state)
             {
-                LPPlayer.GetComponent<Collider2D>().isTrigger = true;
-                StarterPlyr.GetComponent<Collider2D>().isTrigger = true;
-                deathplayer.GetComponent<Collider2D>().isTrigger = true;
-                RoomPlayer.GetComponent<Collider2D>().isTrigger = true;
+                try
+                {
+                    LPPlayer.GetComponent<CircleCollider2D>().isTrigger = true;
+                }
+                catch { }
+                try
+                {
+                    StarterPlyr.GetComponent<CircleCollider2D>().isTrigger = true;
+                }
+                catch { }
+                try
+                {
+                    deathplayer.GetComponent<CircleCollider2D>().isTrigger = true;
+                }
+                catch { }
+                try
+                {
+                    RoomPlayer.GetComponent<CircleCollider2D>().isTrigger = true;
+                }
+                catch { }
             }
             else
             {
-                LPPlayer.GetComponent<Collider2D>().isTrigger = false;
-                StarterPlyr.GetComponent<Collider2D>().isTrigger = false;
-                deathplayer.GetComponent<Collider2D>().isTrigger = false;
-                RoomPlayer.GetComponent<Collider2D>().isTrigger = false;
+                try
+                {
+                    LPPlayer.GetComponent<CircleCollider2D>().isTrigger = false;
+                }
+                catch { }
+                try
+                {
+                    StarterPlyr.GetComponent<CircleCollider2D>().isTrigger = false;
+                }
+                catch { }
+                try
+                {
+                    deathplayer.GetComponent<CircleCollider2D>().isTrigger = false;
+                }
+                catch { }
+                try
+                {
+                    RoomPlayer.GetComponent<CircleCollider2D>().isTrigger = false;
+                }
+                catch { }
             }
         }
 
@@ -146,11 +180,49 @@ namespace COTLMod.Utils
         {
             if (state)
             {
-                //LPPlayer.GetComponent<HealthPlayer>().heart
+                try
+                {
+
+                }
+                catch { }
+                try
+                {
+
+                }
+                catch { }
+                try
+                {
+
+                }
+                catch { }
+                try
+                {
+
+                }
+                catch { }
             }
             else
             {
+                try
+                {
 
+                }
+                catch { }
+                try
+                {
+
+                }
+                catch { }
+                try
+                {
+
+                }
+                catch { }
+                try
+                {
+
+                }
+                catch { }
             }
         }
 
@@ -158,11 +230,39 @@ namespace COTLMod.Utils
         {
             if (state)
             {
+                try
+                {
+                    RoomPlayer.GetComponent<PlayerController>().DodgeDelay = 0f;
+                }
+                catch { }
+                try
+                {
+                    LPPlayer.GetComponent<PlayerController>().DodgeDelay = 0f;
+                }
+                catch { }
+                try
+                {
 
+                }
+                catch { }
             }
             else
             {
+                try
+                {
+                    RoomPlayer.GetComponent<PlayerController>().DodgeDelay = 0.28f;
+                }
+                catch { }
+                try
+                {
+                    LPPlayer.GetComponent<PlayerController>().DodgeDelay = 0.28f;
+                }
+                catch { }
+                try
+                {
 
+                }
+                catch { }
             }
         }
 
