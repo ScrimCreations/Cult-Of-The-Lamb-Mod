@@ -62,7 +62,7 @@ namespace COTLMod.Utils
                     }
                 }
 
-                if (GUI.Button(new Rect(0, 450, 500, 40), $"Max Weapon Damage [{SetButtonText3}]"))
+                if (GUI.Button(new Rect(0, 450, 500, 40), $"Overpowered Weapons [{SetButtonText3}]"))
                 {
                     maxweapondmg = !maxweapondmg;
 
