@@ -22,12 +22,12 @@ namespace COTLMod.Utils
                     GlobalUtils.UnlockAllCrownStuff();
                 }
 
-                if (GUI.Button(new Rect(670, 360, 400, 40), "Add Hearts"))
+                if (GUI.Button(new Rect(670, 460, 400, 40), "Add Hearts"))
                 {
                     GlobalUtils.AddHealth();
                 }
 
-                if (GUI.Button(new Rect(670, 360, 400, 40), "Add Follower"))
+                if (GUI.Button(new Rect(670, 560, 400, 40), "Add Follower"))
                 {
                     GlobalUtils.AddFollower();
                 }
