@@ -10,17 +10,21 @@ namespace COTLMod.Utils
 {
     internal class LoopChecking
     {
-        private static Timer _timer = null;
+        private static Timer ctimer = null;
 
         public static void InitTimer()
         {
-            MelonLogger.Msg("Loop Check Initialized!");
-            MelonLogger.Msg("Timer enabled!");
-            _timer = new Timer(Check, null, 0, 4500);
+            ctimer = new Timer(Check, true, 0, 4500);
+        }
+
+        public static void DisableTimer()
+        {
+            ctimer.Dispose();
         }
 
         public static void Check(Object obj)
         {
+            //MelonLogger.Msg("Timer Test");
             if (ModGUI.speedhack)
             {
                 LocalPlayer.SpeedHack(true);

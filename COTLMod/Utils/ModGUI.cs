@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MelonLoader;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -18,7 +19,8 @@ namespace COTLMod.Utils
         static string SetButtonText4 = "<color=red>OFF</color>";
         static string SetButtonText5 = "<color=red>OFF</color>";
 
-        static string loopbtntxt = "";
+        static string loopbtntxt = "[<color=red>DISABLED</color>]";
+        public static bool loopchecker = false;
 
         public static bool speedhack = false;
         public static bool nocliphack = false;
@@ -114,18 +116,28 @@ namespace COTLMod.Utils
                     }
                 }
 
-                if (GUI.Button(new Rect(0, 600, 500, 40), new GUIContent($"Loop Check [!] {loopbtntxt}","")))
+                if (GUI.Button(new Rect(0, 600, 500, 40), new GUIContent($"[!] Loop Check {loopbtntxt}","")))
                 {
-                    LoopChecking.InitTimer();
-                    loopbtntxt = "[<color=#ffbb29>LOOPING</color>]";
+                    loopchecker = !loopchecker;
+
+                    if (loopchecker)
+                    {
+                        MelonLogger.Msg("Loop Check Initialized!");
+                        LoopChecking.InitTimer();
+                        loopbtntxt = "[<color=#ffbb29>LOOPING</color>]";
+                    }
+                    else
+                    {
+                        loopbtntxt = "[<color=red>DISABLED</color>]";
+                        LoopChecking.DisableTimer();
+                        MelonLogger.Msg("Loop Check Disposed!");
+                    }
                 }
 
-                /*
                 if (GUI.Button(new Rect(0, 650, 500, 40), "Extras"))
                 {
                     SecondaryMODMenu = !SecondaryMODMenu;
                 }
-                */
 
                 if (GUI.Button(new Rect(0, 750, 500, 40), "Quit Game"))
                 {
