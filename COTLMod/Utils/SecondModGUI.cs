@@ -16,6 +16,21 @@ namespace COTLMod.Utils
                 GUI.backgroundColor = new Color(200, 0, 0, 255);
                 GUI.color = new Color(255, 255, 255, 255);
                 GUI.Box(new Rect(670, 300, 850, 600), $"<size=28>Extra Menu</size>");
+
+                if (GUI.Button(new Rect(670, 360, 400, 40), "Unlock All Crown Abilities"))
+                {
+                    GlobalUtils.UnlockAllCrownStuff();
+                }
+
+                if (GUI.Button(new Rect(670, 360, 400, 40), "Add Hearts"))
+                {
+                    GlobalUtils.AddHealth();
+                }
+
+                if (GUI.Button(new Rect(670, 360, 400, 40), "Add Follower"))
+                {
+                    GlobalUtils.AddFollower();
+                }
             }
             else
             {
