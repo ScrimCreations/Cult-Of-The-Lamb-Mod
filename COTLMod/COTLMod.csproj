@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>COTLMod</RootNamespace>
     <AssemblyName>COTLMod</AssemblyName>
-	<LangVersion>latest</LangVersion>
+    <LangVersion>latest</LangVersion>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -82,7 +82,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Configs.cs" />
     <Compile Include="Utils\LocalPlayer.cs" />
+    <Compile Include="Utils\LoopChecking.cs" />
     <Compile Include="Utils\ModGUI.cs" />
+    <Compile Include="Utils\SecondModGUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig">

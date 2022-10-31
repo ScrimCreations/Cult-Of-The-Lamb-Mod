@@ -10,11 +10,15 @@ namespace COTLMod.Utils
 {
     internal class ModGUI
     {
+        public static bool SecondaryMODMenu = false;
+
         static string SetButtonText1 = "<color=red>OFF</color>";
         static string SetButtonText2 = "<color=red>OFF</color>";
         static string SetButtonText3 = "<color=red>OFF</color>";
         static string SetButtonText4 = "<color=red>OFF</color>";
         static string SetButtonText5 = "<color=red>OFF</color>";
+
+        static string loopbtntxt = "";
 
         public static bool speedhack = false;
         public static bool nocliphack = false;
@@ -110,6 +114,19 @@ namespace COTLMod.Utils
                     }
                 }
 
+                if (GUI.Button(new Rect(0, 600, 500, 40), new GUIContent($"Loop Check [!] {loopbtntxt}","")))
+                {
+                    LoopChecking.InitTimer();
+                    loopbtntxt = "[<color=#ffbb29>LOOPING</color>]";
+                }
+
+                /*
+                if (GUI.Button(new Rect(0, 650, 500, 40), "Extras"))
+                {
+                    SecondaryMODMenu = !SecondaryMODMenu;
+                }
+                */
+
                 if (GUI.Button(new Rect(0, 750, 500, 40), "Quit Game"))
                 {
                     Process.GetCurrentProcess().Kill();
@@ -118,8 +135,12 @@ namespace COTLMod.Utils
                 if (GUI.Button(new Rect(0, 800, 500, 40), "Restart Game"))
                 {
                     Process.Start("Cult Of The Lamb.exe");
-                    Process.GetCurrentProcess().Kill();
+                    Application.Quit();
                 }
+
+                GUI.Label(new Rect(10, 875, 500, 40), "[!] = Potential game crashes or lag spikes");
+                GUI.Label(new Rect(10, 900, 500, 40), "[*] = Can be slightly buggy");
+                GUI.Label(new Rect(10, 930, 500, 40), "NOTE: Loop Check prevents the game from resetting modded stuff");
             }
             else
             {
