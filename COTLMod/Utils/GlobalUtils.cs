@@ -11,10 +11,12 @@ namespace COTLMod.Utils
     {
         public static void UnlockAllCrownStuff()
         {
-            for (int i = 0; i < Enum.GetValues(typeof(CrownAbilities.TYPE)).Length; i++)
+            //Will do later
+            try
             {
-                CrownAbilities.UnlockAbility((CrownAbilities.TYPE)Enum.GetValues(typeof(CrownAbilities.TYPE)).GetValue(i));
+
             }
+            catch { }
         }
 
         public static void AddHealth()
@@ -29,6 +31,11 @@ namespace COTLMod.Utils
         public static void AddFollower()
         {
             //Will do later
+            try
+            {
+
+            }
+            catch { }
         }
     }
 }
