@@ -1,30 +1,42 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using MelonLoader;
+using UnityEngine;
 
 namespace COTLMod.Utils
 {
     internal class LoopChecking
     {
-        private static Timer ctimer = null;
+        private static object checkobj = null;
 
-        public static void InitTimer()
+        public static void Init()
         {
-            ctimer = new Timer(Check, true, 0, 4500);
+            checkobj = MelonCoroutines.Start(Check());
         }
 
-        public static void DisableTimer()
+        public static void Dispose()
         {
-            ctimer.Dispose();
+            MelonCoroutines.Stop(checkobj);
         }
 
-        public static void Check(Object obj)
+        public static IEnumerator Check()
         {
-            //MelonLogger.Msg("Timer Test");
+            while(true)
+            {
+                _All();
+                yield return new WaitForSeconds(1f);
+            }
+        }
+
+        private static void _All()
+        {
+            //MelonLogger.Msg("IEnumerator Test");
+
             if (ModGUI.speedhack)
             {
                 LocalPlayer.SpeedHack(true);
@@ -46,12 +58,14 @@ namespace COTLMod.Utils
             if (ModGUI.Infhealth)
             {
                 LocalPlayer.InfHealth(true);
-            }else { LocalPlayer.InfHealth(false); }
+            }
+            else { LocalPlayer.InfHealth(false); }
 
             if (ModGUI.NoCools)
             {
                 LocalPlayer.NoCoolDowns(true);
-            }else { LocalPlayer.NoCoolDowns(false); }
+            }
+            else { LocalPlayer.NoCoolDowns(false); }
         }
     }
 }

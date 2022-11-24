@@ -123,13 +123,13 @@ namespace COTLMod.Utils
                     if (loopchecker)
                     {
                         MelonLogger.Msg("Loop Check Initialized!");
-                        LoopChecking.InitTimer();
+                        LoopChecking.Init();
                         loopbtntxt = "[<color=#ffbb29>LOOPING</color>]";
                     }
                     else
                     {
                         loopbtntxt = "[<color=red>DISABLED</color>]";
-                        LoopChecking.DisableTimer();
+                        LoopChecking.Dispose();
                         MelonLogger.Msg("Loop Check Disposed!");
                     }
                 }
